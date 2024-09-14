@@ -17,8 +17,8 @@ plot_wgcna <- function(x) {
     colors <- labels2colors(colors)
   }      
 
-  d <- data.frame(module=as.character(colors),
-                row.names=seq_along(colors))
+  d <- data.frame(Module=as.character(colors)[x$blockGenes[[1]]])
+  rownames(d) <- seq_along(d[,1])
 
   p <- ggtree(x$dendrograms[[1]], layout = "dendrogram", ladderize = FALSE, size=.2)
 
